@@ -1,0 +1,35 @@
+Original array: [a, b, c, d, e, f]. Let's say n = array.length;
+Rotate array once achieved in:  O(n - 1) ~ O(n)
+Rotate array two elements achieved in: O(array.length - 1 + array.length - 2) = O(2n - 3) ~ O(2n) ~ O(n)
+Rotate array 3 elements: ~ O(3n) ~ O(n)
+Reverse array in place using swapping (n - 1 + n - 2 + ..... + 1) times = O(n * (n - 1) / 2) ~ O((n ^ 2 - n) / 2 ~ O(n^2 - n) ~ O(n^2)
+
+function swap(obj) {
+	let c = obj.a;
+	obj.a = obj.b;
+	obj.b = c;
+	return obj;
+}
+
+Swap #1: [b, a, c, d, e, f]   			Swapping pair of two at a time:
+	#2: [b, c, a, d, e, f]				#1: [c, d, a, b, e, f]
+	#3: [b, c, d, a, e, f]				#2: [c, d, e, f, a, b]
+	#4: [b, c, d, e, a, f]				#3:
+	#5: [b, c, d, e, f, a]				#4:
+Swapping elements except last 1.		#5:
+	#6: [c, b, d, e, f, a]
+	#7: [c, d, b, e, f, a]
+	#8: [c, d, e, b, f, a]
+	#9: [c, d, e, f, b, a]
+Swapping elements except last 2.
+	#10: [d, c, e, f, b, a]
+	#11: [d, e, c, f, b, a]
+	#12: [d, e, f, c, b, a]
+Swapping elements except last 3.
+	#13: [e, d, f, c, b, a]
+	#14: [e, f, d, c, b, a]
+Swapping elements except last 4.
+	#15: [f, e, d, c, b, a]
+Swapping elements except last 5.
+	#16: [f, e, d, c, b, a]
+(#16: Swap by itself or skip when less than 2 elements to swap. Better to skip for minor performance gain.)
