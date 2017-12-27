@@ -9,7 +9,21 @@
 
 function isPalindrome(str) {
     var str = str;
+    var i  = 0;
+    var j = str.length - 1;
 
+    while (i < j) {
+        if (str[i] != str[j]) {
+            console.log("The given string", str, "is NOT a palindrome.");
+            return false;
+        }
+        console.log("i, j before: ", i, j);
+        i++; --j;
+        console.log("i, j after: ", i, j);
+    }
+
+    console.log("The given string", str, "is a palindrome.");
+    return true;
 }
 
 
@@ -18,6 +32,7 @@ isPalindrome("");
 isPalindrome("a");
 isPalindrome("aba");
 isPalindrome("aaaa");
+
 isPalindrome("abcde");
 isPalindrome("ab");
 isPalindrome("123");
